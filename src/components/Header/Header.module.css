@@ -1,0 +1,20 @@
+
+
+.HeaderText {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: rgb(247, 238, 223);
+  font-size: 72px;
+  text-shadow:5px 6px 5px black;
+  line-height: 200px;
+}
+
+.HeaderBackground{
+  position:absolute;
+  background: url('https://source.unsplash.com/1800x900/?nature,water') fixed no-repeat center center; 
+  background-size: cover;
+  height: 250px;
+  width: 100%;
+  opacity: 0.4;
+  z-index:-1;
+}
+

@@ -1,0 +1,18 @@
+.TodoForm {
+  margin: auto;
+}
+.TodoFormInput{
+  width: 29%;
+  padding: 5px;
+}
+.TodoFormButton{
+  padding: 5px;
+  margin: 0 2px;
+  width: 6%;
+  cursor: pointer;
+  font-weight: 500
+}
+.TodoFormButton:hover{
+  background: rgb(56, 55, 55);
+  color: #eee;
+}

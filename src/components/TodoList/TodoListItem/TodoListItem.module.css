@@ -1,0 +1,16 @@
+.TodoListItem{
+  border: 1px solid #000;
+  font-weight: 500;
+  color: #2c2c2c;
+  background: #fff;
+  list-style: none;
+  width: 35%;
+  margin: 5px auto;
+  text-align: left;
+  padding: 5px 10px;
+}
+.TodoListItem:hover{
+  color: #fff;
+  background: #2c2c2c;
+  cursor: pointer;
+}
