@@ -1,14 +1,23 @@
 import React, { Component } from 'react'
 import TodoList from '../../components/TodoList/TodoList'
 import TodoForm from '../../components/TodoForm/TodoForm'
+import ModalDelete from '../../components/ModalDelete/ModalDelete'
 
 class TodoApp extends Component {
 
   state = {
+    modalStatus: false,
+    todoToBeDeleted: '',
     todoItems: [
       {index: 1, value: "Learn React"},
       {index: 2, value: "Learn CSS"}
     ]
+  }
+  showModalHandler = (index) => {
+    this.setState({modalStatus: true, todoToBeDeleted: index})
+  }
+  hideModalHandler = () => {
+    this.setState({modalStatus: false, todoToBeDeleted: ''})
   }
   addItem = (todoItem) => {
     let todoItems = [...this.state.todoItems];
@@ -18,24 +27,27 @@ class TodoApp extends Component {
     });
     this.setState({todoItems: todoItems});
   }
-  removeItem = (itemIndex) => {
-    const check = window.confirm('Task will be deleted, Are you sure?');
-    if(check){
+  removeItem = () => {
       let todoItems = [...this.state.todoItems];
-      todoItems.splice(itemIndex, 1);
-      this.setState({todoItems: todoItems});
-    }
+      todoItems.splice(this.state.todoToBeDeleted, 1);
+      this.setState({todoItems: todoItems}, () => {
+        this.hideModalHandler()
+      });
     return true;
   }
   render() {
 
     return (
       <div>
-        <TodoList items={this.state.todoItems} removeItem={this.removeItem} />
+        <TodoList items={this.state.todoItems} handleShowModal={this.showModalHandler} />
         <TodoForm addItem={this.addItem}/>
+        <ModalDelete 
+          removeItem={this.removeItem}
+          modalStatus={this.state.modalStatus} 
+          handleHideModal={this.hideModalHandler}/>
       </div>
     )
   }
 }
 
-export default TodoApp
+export default TodoApp;
