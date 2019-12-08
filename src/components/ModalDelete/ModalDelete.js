@@ -17,10 +17,10 @@ const ModalDelete = (props) => {
 
       <Modal.Footer>
         <Button variant="secondary" onClick={handleHideModal}>
-          NO
+          Close
     </Button>
         <Button variant="primary" onClick={removeItem}>
-          YES
+         Delete
     </Button>
       </Modal.Footer>
     </Modal>
